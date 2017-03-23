@@ -11,20 +11,13 @@ Any dead cell with exactly three live neighbours becomes a live cell, as if by r
 export function advance(world) {
   return world.map((cArray, y, pArray) => {
     return cArray.map((isAlive, x) => {
-      let neighbors = getNeighbors(world, x, y);
-      let neighborCount = neighbors.length;
-      if (neighborCount > 3) {
-          console.log('neighborCount', neighborCount)
-      }
+      let neighborCount = countNeighbors(world, x, y);
 
       if (isAlive) {
-        if (neighborCount < 2) {
+        if (neighborCount < 2 || neighborCount > 3) {
           return 0;
         }
-        if (neighborCount > 3 ) {
-          return 0;
-        }
-        return 1;  // Count must be 3, rule 3
+        return 1;  // Count must be 2 or 3, rule 2
       }
       else if (neighborCount === 3) {
         return 1;
@@ -34,7 +27,7 @@ export function advance(world) {
   });
 }
 
-function getNeighbors(world, x, y) {
+function countNeighbors(world, x, y) {
   let neighbors = []
 
   let candidates = [
@@ -51,17 +44,14 @@ function getNeighbors(world, x, y) {
   return candidates
     .map(entry => getSingleNeighbor(world, entry[0], entry[1]))
     .filter(entry => entry)
+    .length
 }
 
 function getSingleNeighbor(world, x, y) {
-  if (y < 0 || x < 0) {
-    return null;
-  }
-  if (y >= world.length) {
-    return null;
-  }
-
-  if (x >= world[y].length) {
+  if (y < 0 ||
+      x < 0 ||
+      y >= world.length ||
+      x >= world[y].length) {
     return null;
   }
   return world[y][x]
