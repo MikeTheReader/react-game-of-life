@@ -9,22 +9,26 @@ Any dead cell with exactly three live neighbours becomes a live cell, as if by r
 */
 
 export function advance(world) {
-  return world.map((cArray, y, pArray) => {
-    return cArray.map((isAlive, x) => {
-      let neighborCount = countNeighbors(world, x, y);
+  return world.map((cArray, y, pArray) =>
+    cArray.map((isAlive, x) =>
+      checkCell(isAlive, world, x, y)
+    )
+  );
+}
 
-      if (isAlive) {
-        if (neighborCount < 2 || neighborCount > 3) {
-          return 0;
-        }
-        return 1;  // Count must be 2 or 3, rule 2
-      }
-      else if (neighborCount === 3) {
-        return 1;
-      }
+function checkCell(isAlive, world, x, y) {
+  let neighborCount = countNeighbors(world, x, y);
+
+  if (isAlive) {
+    if (neighborCount < 2 || neighborCount > 3) {
       return 0;
-    });
-  });
+    }
+    return 1;
+  }
+  else if (neighborCount === 3) {
+    return 1;
+  }
+  return 0;
 }
 
 function countNeighbors(world, x, y) {
