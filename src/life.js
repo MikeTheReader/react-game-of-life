@@ -49,7 +49,7 @@ function countNeighbors(world, x, y) {
     .length
 }
 
-function getSingleNeighbor(world, x, y) {
+function getSingleNeighbor(world, y, x) {
   if (y < 0 ||
       x < 0 ||
       y >= world.length ||

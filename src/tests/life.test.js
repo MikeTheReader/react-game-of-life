@@ -14,6 +14,23 @@ it('Obeys Rule One: Lone survivor dies', () => {
   expect(advance(worldStart)).toEqual(expected);
 });
 
+it('Obeys rule One: Two individuals die', () => {
+    let worldStart = [
+      [0, 1, 0, 0],
+      [0, 0, 0, 0],
+      [0, 1, 0, 0],
+      [0, 0, 0, 0]
+    ];
+    let expected = [
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0]
+    ];
+    expect(advance(worldStart)).toEqual(expected);
+})
+
+
 it('Obeys Rule Two: Three neighbors live', () => {
   let worldStart = [
     [0, 0, 0, 0],
@@ -24,7 +41,7 @@ it('Obeys Rule Two: Three neighbors live', () => {
   let expected = [
     [0, 0, 0, 0],
     [0, 1, 1, 0],
-    [0, 0, 1, 0],
+    [0, 1, 1, 0],
     [0, 0, 0, 0]
   ];
   expect(advance(worldStart)).toEqual(expected);
