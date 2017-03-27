@@ -9,8 +9,8 @@ Any dead cell with exactly three live neighbours becomes a live cell, as if by r
 */
 
 export function advance(world) {
-  return world.map((cArray, y, pArray) =>
-    cArray.map((isAlive, x) =>
+  return world.map((xArray, y, yArray) =>
+    xArray.map((isAlive, x) =>
       checkCell(isAlive, world, x, y)
     )
   );
