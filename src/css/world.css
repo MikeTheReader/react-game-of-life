@@ -1,0 +1,17 @@
+
+.world-row {
+  display: table-row;
+}
+
+.world-cell {
+  display: table-cell;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #CCC;
+  transition: all .5s;
+}
+
+.world-cell.alive {
+  background-color: #8B0000;
+  border: 1px solid #800000;
+}
