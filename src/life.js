@@ -60,3 +60,18 @@ function getSingleNeighbor(world, x, y) {
   }
   return world[y][x]
 }
+
+export function generateRandomWorld(height, width) {
+  let world = new Array(height);
+  for (let y = 0; y < height; y++) {
+    world[y] = new Array(width);
+    for (let x = 0; x < width; x++) {
+      world[y][x] = generateRandomCell();
+    }
+  }
+  return world;
+}
+
+function generateRandomCell() {
+  return Math.floor(Math.random()*2);
+}

@@ -1,4 +1,4 @@
-import { advance } from '../life';
+import { advance, generateRandomWorld } from '../life';
 
 it('Obeys Rule One: Lone survivor dies', () => {
   let worldStart = [
@@ -61,3 +61,22 @@ it('Obeys Rule Four: Three neighbors breed life', () => {
   ];
   expect(advance(worldStart)).toEqual(expected);
 });
+
+it('Generates a random world.', () => {
+  const zeroOrOne = {
+    asymmetricMatch: actual => actual === 0 || actual === 1
+  };
+  let total = 0;
+  let testWorld = generateRandomWorld(20, 5);
+  expect(testWorld.length).toEqual(20);
+  expect(testWorld[0].length).toEqual(5);
+  testWorld.forEach(row => {
+    expect(row.length).toEqual(5);
+    row.forEach(cell => {
+      expect(cell).toEqual(zeroOrOne);
+      total += cell;
+    })
+  })
+  expect(total).not.toEqual(20 * 5);
+  expect(total).not.toEqual(0);
+})
