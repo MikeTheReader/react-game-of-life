@@ -18,7 +18,6 @@ export function advance(world) {
 
 function checkCell(isAlive, world, x, y) {
   let neighborCount = countNeighbors(world, x, y);
-  var test = null;
 
   if (isAlive) {
     if (neighborCount < 2 || neighborCount > 3) {
@@ -33,8 +32,6 @@ function checkCell(isAlive, world, x, y) {
 }
 
 function countNeighbors(world, x, y) {
-  let neighbors = []
-
   let candidates = [
     [y-1, x-1],
     [y, x-1],
