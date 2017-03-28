@@ -38,7 +38,7 @@ export default class World extends Component {
 
     return (
       <div className="world">
-        <div>{rows}</div>
+        {rows}
       </div>
     )
   }
