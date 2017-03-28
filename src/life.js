@@ -50,12 +50,21 @@ function countNeighbors(world, x, y) {
 }
 
 function getSingleNeighbor(world, y, x) {
-  if (y < 0 ||
-      x < 0 ||
-      y >= world.length ||
-      x >= world[y].length) {
-    return null;
+  if (y < 0) {
+    y = world.length - 1;
   }
+
+  if (x < 0) {
+    x = world[0].length - 1;
+  }
+
+  if (y >= world.length) {
+    y = 0;
+  }
+  if (x >= world[y].length) {
+    x = 0;
+  }
+
   return world[y][x]
 }
 

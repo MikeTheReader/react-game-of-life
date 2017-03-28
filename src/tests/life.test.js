@@ -55,9 +55,9 @@ it('Obeys Rule Three: Four neighbors die', () => {
     [0, 0, 0, 1],
   ];
   let expected = [
-    [0, 0, 0, 0],
+    [0, 0, 1, 0],
     [0, 1, 1, 0],
-    [0, 1, 0, 1],
+    [1, 1, 0, 1],
     [0, 0, 1, 0],
   ];
   expect(advance(worldStart)).toEqual(expected);

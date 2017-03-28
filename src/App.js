@@ -6,7 +6,7 @@ class App extends Component {
     return (
         <div className="container">
           <h1>React Game of Life</h1>
-          <World height={50} width={50} />
+          <World height={40} width={40} />
         </div>
     );
   }
