@@ -13,14 +13,14 @@ export default class World extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => this.moveAStep(), 100);
+    setTimeout(() => this.moveAStep(), 10);
   }
 
   moveAStep() {
     this.setState({
       world: advance(this.state.world)
     });
-    setTimeout(() => this.moveAStep(), 100);
+    setTimeout(() => this.moveAStep(), 10);
   }
 
   render() {

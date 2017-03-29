@@ -16,11 +16,11 @@
   width: 15px;
   height: 15px;
   border: 1px solid transparent;
-  transition: all 1s;
 }
 
 .world-cell.alive {
   background-color: #4F628E;
   box-shadow: 3px 3px 6px #333;
   border: 1px solid #000;
+  border-radius: 50%;
 }
