@@ -69,13 +69,9 @@ function getSingleNeighbor(world, y, x) {
 }
 
 export function generateRandomWorld(height, width) {
-  let world = new Array(height);
-  for (let y = 0; y < height; y++) {
-    world[y] = new Array(width);
-    for (let x = 0; x < width; x++) {
-      world[y][x] = generateRandomCell();
-    }
-  }
+  let world = new Array(height).fill(
+      new Array(width).fill().map(generateRandomCell)
+  );
   return world;
 }
 
