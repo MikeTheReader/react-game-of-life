@@ -1,30 +1,11 @@
 import React, { Component } from 'react';
-import { generateRandomWorld, advance } from './life';
 
 import './css/world.css'
 
 export default class World extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      world: generateRandomWorld(props.height, props.width)
-    }
-  }
-
-  componentDidMount() {
-    setTimeout(() => this.moveAStep(), 10);
-  }
-
-  moveAStep() {
-    this.setState({
-      world: advance(this.state.world)
-    });
-    setTimeout(() => this.moveAStep(), 10);
-  }
-
   render() {
-    let rows = this.state.world.map((xArray, y, yArray) => {
+    let rows = this.props.world.map((xArray, y, yArray) => {
       let cells = xArray.map((isAlive, x) => {
         let classes = 'world-cell';
         if (isAlive) {
@@ -45,6 +26,5 @@ export default class World extends Component {
 }
 
 World.propTypes = {
-  height: React.PropTypes.number.isRequired,
-  width: React.PropTypes.number.isRequired
+  world: React.PropTypes.array.isRequired
 }
