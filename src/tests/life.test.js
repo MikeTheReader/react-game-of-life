@@ -1,4 +1,4 @@
-import { advance, generateRandomWorld } from '../life';
+import { advance, generateRandomWorld, countLiveCells } from '../life';
 
 it('Obeys Rule One: Lone survivor dies', () => {
   let worldStart = [
@@ -96,4 +96,22 @@ it('Generates a random world.', () => {
   })
   expect(total).not.toEqual(20 * 5);
   expect(total).not.toEqual(0);
+})
+
+it('Counts the live cells in a world.', () => {
+    let world = [
+        [0, 1, 1, 0],
+        [1, 1, 1, 1],
+        [0, 0, 0, 1],
+        [0, 0, 0, 0]
+    ];
+    expect(countLiveCells(world)).toEqual(7);
+
+    let zeroWorld = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+    ];
+    expect(countLiveCells(zeroWorld)).toEqual(0);
 })

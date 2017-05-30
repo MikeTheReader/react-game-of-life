@@ -79,3 +79,7 @@ export function generateRandomWorld(height, width) {
 function generateRandomCell() {
   return Math.floor(Math.random()*2);
 }
+
+export function countLiveCells(world) {
+    return world.reduce((a, b) => a.concat(b)).reduce((a, b) => a + b);
+}
