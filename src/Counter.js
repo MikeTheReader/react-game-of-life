@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { countLiveCells } from './life';
 
 const Counter = ({ world }) => {
@@ -10,7 +11,7 @@ const Counter = ({ world }) => {
 }
 
 Counter.propTypes = {
-    world: React.PropTypes.array.isRequired
+    world: PropTypes.array.isRequired
 }
 
 export default Counter;

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import './css/world.css'
 
 const World = ({ world }) => {
@@ -23,7 +23,7 @@ const World = ({ world }) => {
 }
 
 World.propTypes = {
-    world: React.PropTypes.array.isRequired
+    world: PropTypes.array.isRequired
 }
 
 export default World;
