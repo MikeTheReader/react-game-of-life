@@ -5,6 +5,6 @@ import './css/normalize.css';
 import './css/skeleton.css';
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+    <App />,
+    document.getElementById('root'),
 );

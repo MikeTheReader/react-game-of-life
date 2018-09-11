@@ -1,29 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './css/world.css'
+import './css/world.css';
 
 const World = ({ world }) => {
-    let rows = world.map((xArray, y, yArray) => {
-        let cells = xArray.map((isAlive, x) => {
+    const rows = world.map((xArray, y, yArray) => {
+        const cells = xArray.map((isAlive, x) => {
             let classes = 'world-cell';
             if (isAlive) {
                 classes += ' alive';
             }
-            let key = x + ':' + y
-            return <div key={key} className={classes}></div>
+            const key = `${x}:${y}`;
+            return <div key={key} className={classes} />;
         });
-        return <div key={y} className="world-row">{cells}</div>
+        return <div key={y} className="world-row">{cells}</div>;
     });
 
     return (
         <div className="world">
             {rows}
         </div>
-    )
-}
+    );
+};
 
 World.propTypes = {
-    world: PropTypes.array.isRequired
-}
+    world: PropTypes.array.isRequired,
+};
 
 export default World;

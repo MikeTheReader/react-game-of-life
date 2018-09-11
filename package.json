@@ -1,15 +1,14 @@
 {
   "name": "react-game-of-life",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "eslint": "^4.8.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0"
   },
   "devDependencies": {
-    "gh-pages": "^0.12.0",
-    "react-scripts": "1.0.17"
+    "gh-pages": "^1.2.0",
+    "react-scripts": "1.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
