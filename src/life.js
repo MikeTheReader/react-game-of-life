@@ -9,73 +9,73 @@ Any dead cell with exactly three live neighbours becomes a live cell, as if by r
 */
 
 export function advance(world) {
-    return world.map((xArray, y, yArray) => xArray.map((isAlive, x) => checkCell(isAlive, world, x, y)));
+  return world.map((xArray, y, yArray) =>
+    xArray.map((isAlive, x) => checkCell(isAlive, world, x, y))
+  );
 }
 
 function checkCell(isAlive, world, x, y) {
-    const neighborCount = countNeighbors(world, x, y);
+  const neighborCount = countNeighbors(world, x, y);
 
-    if (isAlive) {
-        if (neighborCount < 2 || neighborCount > 3) {
-            return 0;
-        }
-        return 1;
+  if (isAlive) {
+    if (neighborCount < 2 || neighborCount > 3) {
+      return 0;
     }
-    if (neighborCount === 3) {
-        return 1;
-    }
-    return 0;
+    return 1;
+  }
+  if (neighborCount === 3) {
+    return 1;
+  }
+  return 0;
 }
 
 function countNeighbors(world, x, y) {
-    const candidates = [
-        [y - 1, x - 1],
-        [y, x - 1],
-        [y + 1, x - 1],
-        [y - 1, x],
-        [y + 1, x],
-        [y - 1, x + 1],
-        [y, x + 1],
-        [y + 1, x + 1],
-    ];
+  const candidates = [
+    [y - 1, x - 1],
+    [y, x - 1],
+    [y + 1, x - 1],
+    [y - 1, x],
+    [y + 1, x],
+    [y - 1, x + 1],
+    [y, x + 1],
+    [y + 1, x + 1]
+  ];
 
-    return candidates
-        .map(entry => getSingleNeighbor(world, entry[0], entry[1]))
-        .filter(entry => entry)
-        .length;
+  return candidates
+    .map(entry => getSingleNeighbor(world, entry[0], entry[1]))
+    .filter(entry => entry).length;
 }
 
 function getSingleNeighbor(world, y, x) {
-    if (y < 0) {
-        y = world.length - 1;
-    }
+  if (y < 0) {
+    y = world.length - 1;
+  }
 
-    if (x < 0) {
-        x = world[0].length - 1;
-    }
+  if (x < 0) {
+    x = world[0].length - 1;
+  }
 
-    if (y >= world.length) {
-        y = 0;
-    }
-    if (x >= world[y].length) {
-        x = 0;
-    }
+  if (y >= world.length) {
+    y = 0;
+  }
+  
+  if (x >= world[y].length) {
+    x = 0;
+  }
 
-    return world[y][x];
+  return world[y][x];
 }
 
 export function generateRandomWorld(height, width) {
-    return new Array(height).fill().map(
-        entry => new Array(width).fill().map(
-            entry => generateRandomCell(),
-        ),
-    );
+  return new Array(height)
+    .fill()
+    .map(entry => new Array(width).fill().map(entry => generateRandomCell()));
 }
 
 function generateRandomCell() {
-    return Math.floor(Math.random() * 2);
+  return Math.floor(Math.random() * 2);
 }
 
 export function countLiveCells(world) {
-    return world.reduce((a, b) => a.concat(b)).reduce((a, b) => a + b);
+  return world.reduce((a, b) => a.concat(b)).reduce((a, b) => a + b);
 }
