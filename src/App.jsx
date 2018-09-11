@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { generateRandomWorld, advance } from "./life";
+import { advance, generateRandomWorld } from "./life";
 import World from "./World";
 import Counter from "./Counter";
 
