@@ -38,7 +38,7 @@ function countNeighbors(world, x, y) {
     [y + 1, x],
     [y - 1, x + 1],
     [y, x + 1],
-    [y + 1, x + 1]
+    [y + 1, x + 1],
   ];
 
   return candidates
@@ -58,7 +58,7 @@ function getSingleNeighbor(world, y, x) {
   if (y >= world.length) {
     y = 0;
   }
-  
+
   if (x >= world[y].length) {
     x = 0;
   }

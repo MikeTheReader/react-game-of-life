@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { countLiveCells } from './life';
+import { countLiveCells } from '../models/life';
 
 const Counter = ({ world }) => (
   <div>Number of live cells: {countLiveCells(world)}</div>

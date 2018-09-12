@@ -1,4 +1,8 @@
-import { advance, countLiveCells, generateRandomWorld } from '../life';
+import {
+  advance,
+  countLiveCells,
+  generateRandomWorld,
+} from '../../models/life';
 
 it('Obeys Rule One: Lone survivor dies', () => {
   // prettier-ignore
