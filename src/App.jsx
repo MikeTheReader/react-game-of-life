@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { advance, generateRandomWorld } from './life';
-import World from './World';
-import Counter from './Counter';
+import { advance, generateRandomWorld } from './models/life';
+import World from './components/World';
+import Counter from './components/Counter';
 
 const HEIGHT = 40;
 const WIDTH = 40;
+const MILLESECONDS_BETWEEN_STEPS = 10;
 
 class App extends Component {
   constructor(props) {
@@ -16,24 +17,18 @@ class App extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => this.moveAStep(), 10);
+    this.moveAStep();
   }
 
   togglePause = () => {
-    this.setState({
-      world: this.state.world,
-      active: !this.state.active,
-    });
+    this.setState(state => ({ active: !this.state.active }));
   };
 
   moveAStep() {
     if (this.state.active) {
-      this.setState({
-        world: advance(this.state.world),
-        active: this.state.active,
-      });
+      this.setState(state => ({ world: advance(state.world) }));
     }
-    setTimeout(() => this.moveAStep(), 10);
+    setTimeout(() => this.moveAStep(), MILLESECONDS_BETWEEN_STEPS);
   }
 
   render() {

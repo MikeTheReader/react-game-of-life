@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './css/world.css';
+import '../css/world.css';
 
 const World = ({ world }) => {
   const rows = world.map((xArray, y, yArray) => {
