@@ -2,7 +2,7 @@
 
 This is my JavaScript / React version of Conway's Game of Life.
 
-Demo: http://mikethereader.com/react-game-of-life/
+Demo: https://github.mikethereader.com/react-game-of-life/
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
