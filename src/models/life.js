@@ -69,7 +69,7 @@ function getSingleNeighbor(world, y, x) {
 export function generateRandomWorld(height, width) {
   return new Array(height)
     .fill()
-    .map(entry => new Array(width).fill().map(entry => generateRandomCell()));
+    .map(row => new Array(width).fill().map(column => generateRandomCell()));
 }
 
 function generateRandomCell() {
